@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.costs.Costs.DTO.ServicoDTO;
-import br.com.costs.Costs.Model.Servico;
 import br.com.costs.Costs.Service.ServicoService;
 import jakarta.validation.Valid;
 

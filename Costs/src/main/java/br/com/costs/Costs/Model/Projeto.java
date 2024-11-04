@@ -87,5 +87,11 @@ public class Projeto {
 		TotalUtilizado = totalUtilizado;
 	}
 	
-	
+    public void adicionarCustoServico(float custo) {
+        this.TotalUtilizado += custo;
+    }
+    
+    public void removerCustoServico(float custo) {
+        this.TotalUtilizado -= custo;
+    }
 }
