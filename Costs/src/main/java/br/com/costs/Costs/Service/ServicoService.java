@@ -50,7 +50,10 @@ public class ServicoService {
 	        if ((projeto.getTotalUtilizado() + data.custo()) > projeto.getOrcamento()) {
 	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Custo muito elevado!");
 	        }
-	        
+	        	
+	        float totValue = projeto.getTotalUtilizado() + data.custo();
+	        	
+	        projeto.setTotalUtilizado(totValue);
 	        servico.setNome(data.nome());
 	        servico.setDescricao(data.descricao());
 	        servico.setCusto(data.custo());
@@ -74,6 +77,18 @@ public class ServicoService {
 			}
 			
 			Servico servico = optionalServico.get();
+			Projeto projeto = servico.getProjeto();
+				
+			float custoAntigo = servico.getCusto();
+			float custoNovo = data.custo();
+			
+	        if ((projeto.getTotalUtilizado() - custoAntigo + custoNovo) > projeto.getOrcamento()) {
+	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Custo muito elevado!");
+	        }
+	        
+	        projeto.removerCustoServico(custoAntigo);
+	        projeto.adicionarCustoServico(custoNovo);
+	        projetoRepository.save(projeto);
 			
 			servico.setNome(data.nome());
 			servico.setCusto(data.custo());
@@ -99,8 +114,13 @@ public class ServicoService {
 			}
 			
 			Servico servico = optionalServico.get();
+			Projeto projeto = servico.getProjeto();
 			
-			repository.deleteById(servico.getId());;
+			float totValue = projeto.getTotalUtilizado() - servico.getCusto();
+			
+			projeto.setTotalUtilizado(totValue);
+			
+			repository.deleteById(id);;
 			
 			return ResponseEntity.ok().build();
 		}

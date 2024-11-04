@@ -22,7 +22,9 @@ public class ProjetoService {
 	
 	public List<ProjetoDTO> ListarProjeto(){
 		List<Projeto> projetos = repository.findAll();
+		
 	    return projetos.stream()
+                
 		        .map(projeto -> new ProjetoDTO(
 		        		projeto.getId(),
 		        		projeto.getNome(),
