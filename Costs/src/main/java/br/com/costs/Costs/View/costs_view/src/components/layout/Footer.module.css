@@ -1,0 +1,44 @@
+.footer{
+    background-color: #222;
+    color: #fff;
+    padding: 3em;
+    text-align: center;
+}
+
+.social_list{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.social_list li{
+    margin: 0 1em;
+}
+
+.social_list li:hover:nth-child(1){
+    color: RGB(24, 119, 242);
+}
+
+.social_list li:hover:nth-child(2){
+    color: RGB(193, 53, 132);
+}
+
+.social_list li:hover:nth-child(3){
+    color: RGB(0, 119, 181);
+}
+
+.social_list svg{
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.copy_right{
+    font-size: 1.5em;
+    margin-top: 2em;
+}
+
+
+.copy_right span{
+    font-weight: bold;
+    color: #ffbb33;
+}
