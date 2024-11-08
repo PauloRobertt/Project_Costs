@@ -30,7 +30,7 @@ public class Projeto {
 	
 	@Column(name = "categoria", length = 50, nullable = false)
 	@NotBlank(message = "Categoria é obrigatório")
-	private String Categoria;
+	private String categoria;
 	
 	@Column(name = "totalUtilizado", nullable = true)
 	private float TotalUtilizado;
@@ -72,11 +72,11 @@ public class Projeto {
 	}
 
 	public String getCategoria() {
-		return Categoria;
+		return categoria;
 	}
 
 	public void setCategoria(String categoria) {
-		Categoria = categoria;
+		this.categoria = categoria;
 	}
 
 	public float getTotalUtilizado() {
