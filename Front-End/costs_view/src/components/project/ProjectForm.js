@@ -11,7 +11,6 @@ export default function ProjectForm({btnText, handleSubmit, projectData}){
     const submit = (e) =>{
         e.preventDefault();
         handleSubmit(project)
-        console.log(project);
     }
 
     function handleChange(e){

@@ -14,9 +14,10 @@ export default function NewProject(){
             },
             body: JSON.stringify(project)
         })
-        .then((resp)=>{resp.json()})
-        .then((data)=>{
+        .then((resp)=> resp.json())
+        .then((data)=> {
             console.log(data);
+            navegate("/projects")
         })
         .catch((error)=>{
             console.log(error);

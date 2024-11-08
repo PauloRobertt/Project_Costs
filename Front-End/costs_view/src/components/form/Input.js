@@ -13,6 +13,7 @@ export default function Input({type, text, name, placeholder, handleOnChange, va
                 maxLength={maxLength}
                 minLength={minLength}
                 min={min}
+                required
             />
         </div>
     )
