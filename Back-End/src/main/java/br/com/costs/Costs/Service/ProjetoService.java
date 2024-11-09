@@ -54,7 +54,7 @@ public class ProjetoService {
 			
 			repository.save(projeto);
 			
-			return ResponseEntity.ok("Projeto criado com sucesso ID " + projeto.getId());
+			return ResponseEntity.ok("{\"mensagem\": \"Projeto criado com sucesso\"}");
 		}
 		catch(Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
