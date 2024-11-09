@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import styles from './Projects.module.css';
 import Container from '../layout/Container.js'
+import Loading from '../layout/Loading.js';
 
 import Message from "../layout/Message";
 import LinkButton from "../layout/LinkButton.js";
@@ -10,6 +11,7 @@ import ProjectCard from "../project/ProjectCard.js";
 
 export default function Projects(){
     const [projects, setProjects] = useState([]);
+    const [removeLoading, setRemoveLoading] = useState(false);
 
     const location = useLocation();
     let message = '';
@@ -28,6 +30,7 @@ export default function Projects(){
         .then((resp)=> resp.json())
         .then((data)=> {
             setProjects(data);
+            setRemoveLoading(true)
         })
         .catch((error)=>{
             console.log(error);
@@ -50,6 +53,10 @@ export default function Projects(){
                     categoria={project.categoria}
                     key={project.id}
                 />)}
+                {!removeLoading && <Loading/>}
+                {removeLoading && project.length === 0 &&
+                    <p>Não há projetos cadastrados</p>
+                }
             </Container>
         </div>
     );
