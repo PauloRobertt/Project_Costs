@@ -17,7 +17,7 @@ export default function NewProject(){
         .then((resp)=> resp.json())
         .then((data)=> {
             console.log(data);
-            navegate("/projects")
+            navegate("/projects", {state: {message: 'Projeto criado com sucesso!'}})
         })
         .catch((error)=>{
             console.log(error);
