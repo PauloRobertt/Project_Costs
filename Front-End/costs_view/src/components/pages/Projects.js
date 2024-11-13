@@ -37,6 +37,22 @@ export default function Projects(){
         })
     },[])
 
+    function removeProject(id){
+        fetch(`http://localhost:8080/projeto/${id}`,{
+            method:'DELETE',
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setProjects(projects.filter((project)=> project.id !== id))
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
+
     return(
         <div className={styles.project_container}>
             <div className={styles.title_container}>
@@ -52,6 +68,7 @@ export default function Projects(){
                     orcamento={project.orcamento}
                     categoria={project.categoria}
                     key={project.id}
+                    handleRemove={removeProject}
                 />)}
                 {!removeLoading && <Loading/>}
                 {removeLoading && projects.length === 0 &&
