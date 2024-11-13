@@ -12,6 +12,7 @@ import ProjectCard from "../project/ProjectCard.js";
 export default function Projects(){
     const [projects, setProjects] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
+    const [projectMessage, setProjectMessage] =useState('');
 
     const location = useLocation();
     let message = '';
@@ -37,6 +38,22 @@ export default function Projects(){
         })
     },[])
 
+    function removeProject(id){
+        fetch(`http://localhost:8080/projeto/${id}`,{
+            method:'DELETE',
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(() => {
+            setProjects(projects.filter((project)=> project.id !== id));
+            setProjectMessage('Projeto removido com sucesso!');
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
+
     return(
         <div className={styles.project_container}>
             <div className={styles.title_container}>
@@ -44,6 +61,7 @@ export default function Projects(){
                 <LinkButton to="/newproject" text="Novo Projeto"/>
             </div>
             {message && <Message type="sucess" msg={message}/>}
+            {projectMessage && <Message type="sucess" msg={projectMessage}/>}
             <Container customClass="start">
                 {projects.length > 0 && 
                     projects.map((project) => <ProjectCard
@@ -52,6 +70,7 @@ export default function Projects(){
                     orcamento={project.orcamento}
                     categoria={project.categoria}
                     key={project.id}
+                    handleRemove={removeProject}
                 />)}
                 {!removeLoading && <Loading/>}
                 {removeLoading && projects.length === 0 &&
