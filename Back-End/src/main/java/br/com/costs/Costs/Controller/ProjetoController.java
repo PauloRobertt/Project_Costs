@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.costs.Costs.DTO.ProjetoDTO;
+import br.com.costs.Costs.Model.Projeto;
 import br.com.costs.Costs.Service.ProjetoService;
 import jakarta.validation.Valid;
 
@@ -23,6 +24,12 @@ public class ProjetoController {
 	
 	@Autowired
 	private ProjetoService service;
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Projeto> ListarPorID(@PathVariable Long id){
+		Projeto projeto = service.ListarPorID(id);
+		return ResponseEntity.ok().body(projeto);
+	}
 	
 	@GetMapping
 	public List<ProjetoDTO> ListarProjeto(){
