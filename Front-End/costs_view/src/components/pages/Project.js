@@ -2,11 +2,15 @@ import styles from './Project.module.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+import Loading from '../layout/Loading.js';
+import Container from '../layout/Container.js';
+
 export default function Project(){
 
     const { id } = useParams();
 
     const [project, setProject] = useState([]);
+    const [showProject, setShowProject] = useState(false);
 
     useEffect(()=>{
         fetch(`http://localhost:8080/projeto/${id}`,{
@@ -24,7 +28,40 @@ export default function Project(){
         })
     },[id])
 
+    function toggleProjectForm(){
+        setShowProject(!showProject);
+    }
+
     return(
-        <p>{project.nome}</p>
+        <>
+            {!project.nome ? <Loading/> : 
+                <div className={styles.project_details}>
+                    <Container customClass="column">
+                        <div className={styles.details_container}>
+                            <h1>Projeto: {project.nome}</h1>
+                            <button className={styles.btn} onClick={toggleProjectForm}>
+                                {showProject ? "Fechar" : "Editar Projeto"}
+                            </button>
+                            {showProject ?
+                                <div className={styles.project_info}>
+                                    <p>
+                                        <span>Categoria: </span>{project.categoria}
+                                    </p>
+                                    <p>
+                                        <span>Total de Orçamento: R$ </span>{project.orcamento}
+                                    </p>
+                                    <p>
+                                        <span>Total Utilizado: R$ </span>{project.totalUtilizado}
+                                    </p>
+                                </div> :
+                                <div className={styles.project_info}>
+                                    <p>Detalhes do projeto</p>
+                                </div>
+                            }
+                        </div>
+                    </Container>
+                </div>
+            }
+        </>
     );
 }
