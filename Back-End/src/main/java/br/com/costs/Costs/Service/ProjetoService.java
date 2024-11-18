@@ -68,7 +68,7 @@ public class ProjetoService {
 		}
 	}
 	
-	public ResponseEntity<String> EditarProjeto(Long id, ProjetoDTO data) {
+	public ResponseEntity<Object> EditarProjeto(Long id, ProjetoDTO data) {
 		try {
 			Optional<Projeto> optionalProjeto = repository.findById(id);
 			
@@ -84,7 +84,7 @@ public class ProjetoService {
 			
 			repository.save(projeto);
 			
-			return ResponseEntity.ok().build();
+			return ResponseEntity.ok(projeto);
 		}
 		
 		catch(Exception e) {
