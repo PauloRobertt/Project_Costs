@@ -27,6 +27,7 @@ export default function ProjectForm({btnText, handleSubmit, projectData}){
                 type="text" 
                 text="Nome do Projeto" 
                 name="nome"
+                value={project.nome}
                 placeholder="Insira o nome do projeto"
                 maxLength={100}
                 minLength={3}
@@ -36,6 +37,7 @@ export default function ProjectForm({btnText, handleSubmit, projectData}){
                 type="number" 
                 text="Orçamento do Projeto" 
                 name="orcamento"
+                value={project.orcamento}
                 placeholder="Insira o orçamento total"
                 min={0}
                 handleOnChange={handleChange}

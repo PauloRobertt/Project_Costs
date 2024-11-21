@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,11 @@ public class ProjetoService {
 	
 	@Autowired
 	private ProjetoRepository repository;
+	
+	public Projeto ListarPorID(Long id){
+		Optional<Projeto> optionalProjeto = repository.findById(id);
+		return optionalProjeto.orElseThrow(() -> new ObjectNotFoundException("Projeto não encontrado!", optionalProjeto));
+	}
 	
 	public List<ProjetoDTO> ListarProjeto(){
 		List<Projeto> projetos = repository.findAll();
@@ -62,7 +68,7 @@ public class ProjetoService {
 		}
 	}
 	
-	public ResponseEntity<String> EditarProjeto(Long id, ProjetoDTO data) {
+	public ResponseEntity<Object> EditarProjeto(Long id, ProjetoDTO data) {
 		try {
 			Optional<Projeto> optionalProjeto = repository.findById(id);
 			
@@ -78,7 +84,7 @@ public class ProjetoService {
 			
 			repository.save(projeto);
 			
-			return ResponseEntity.ok().build();
+			return ResponseEntity.ok(projeto);
 		}
 		
 		catch(Exception e) {
