@@ -16,7 +16,6 @@ export default function ServiceForm({ btnText, handleSubmit, projectData }) {
 
     const submit = (e) => {
         e.preventDefault();
-        console.log("Objeto Serviço: ", servico);
         handleSubmit(servico);
     }
 
