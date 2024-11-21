@@ -36,7 +36,7 @@ public class ServicoService {
 	        .collect(Collectors.toList());
 	}
 	
-	public ResponseEntity<String> CriarServico(ServicoDTO data) {
+	public ResponseEntity<Object> CriarServico(ServicoDTO data) {
 	    try {
 	        Servico servico = new Servico();
 	        
@@ -61,7 +61,7 @@ public class ServicoService {
 	        
 	        repository.save(servico);
 	        
-	        return ResponseEntity.ok("Serviço criado com sucesso ID " + servico.getId());
+	        return ResponseEntity.ok("{\"mensagem\": \"Servico criado com sucesso\"}");
 	    } catch (Exception e) {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 	            .body("Erro ao criar o serviço: " + e.getMessage());
