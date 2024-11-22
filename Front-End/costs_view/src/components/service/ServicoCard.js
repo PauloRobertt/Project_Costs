@@ -17,7 +17,7 @@ export default function ServicoCard({id, nome, descricao, custo, handleRemove}){
                 <span>custo:</span> R${custo}
             </p>
             <p className={styles.category_text}>
-                <span className={`${styles[descricao.toLowerCase()]}`}></span> {descricao}
+                {descricao}
             </p>
             <div className={styles.project_card_actions}>
                 <button onClick={remove}>

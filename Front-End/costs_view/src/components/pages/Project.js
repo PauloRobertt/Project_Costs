@@ -19,6 +19,36 @@ export default function Project() {
   const [typeMessage, setTypeMessage] = useState();
   const [txtMessage, setTxtMessage] = useState();
 
+  function reloadProject() {
+    fetch(`http://localhost:8080/projeto/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setProject(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    fetch("http://localhost:8080/servico", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setService(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
   useEffect(() => {
     fetch(`http://localhost:8080/projeto/${id}`, {
       method: "GET",
@@ -102,28 +132,30 @@ export default function Project() {
         setShowServico(!showServico);
         setTypeMessage("sucess");
         setTxtMessage("Serviço criado com Sucesso!");
+        reloadProject();
       })
       .catch((error) => {
         console.log(error);
       })
   }
 
-  function removeService(id){
-    fetch(`http://localhost:8080/servico/${id}`,{
-        method:'DELETE',
-        headers:{
-            'Content-Type': 'application/json'
-        }
+  function removeService(id) {
+    fetch(`http://localhost:8080/servico/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
-    .then(() => {
-        setService(service.filter((servico)=> servico.id !== id));
+      .then(() => {
+        setService(service.filter((servico) => servico.id !== id));
         setTypeMessage("sucess");
         setTxtMessage("Serviço excluido com Sucesso!");
-    })
-    .catch((error)=>{
+        reloadProject();
+      })
+      .catch((error) => {
         console.log(error);
-    })
-}
+      })
+  }
 
   function toggleProjectForm() {
     setShowProject(!showProject);
