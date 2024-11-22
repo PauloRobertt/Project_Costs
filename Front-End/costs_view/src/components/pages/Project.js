@@ -108,6 +108,23 @@ export default function Project() {
       })
   }
 
+  function removeService(id){
+    fetch(`http://localhost:8080/servico/${id}`,{
+        method:'DELETE',
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(() => {
+        setService(service.filter((servico)=> servico.id !== id));
+        setTypeMessage("sucess");
+        setTxtMessage("Serviço excluido com Sucesso!");
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
+}
+
   function toggleProjectForm() {
     setShowProject(!showProject);
   }
@@ -179,6 +196,7 @@ export default function Project() {
                     nome={servico.nome}
                     descricao={servico.descricao}
                     custo={servico.custo}
+                    handleRemove={removeService}
                     key={servico.id}
                   />
                 )}

@@ -20,9 +20,6 @@ export default function ServicoCard({id, nome, descricao, custo, handleRemove}){
                 <span className={`${styles[descricao.toLowerCase()]}`}></span> {descricao}
             </p>
             <div className={styles.project_card_actions}>
-                <Link to={`/project/${id}`}>
-                    <BsPencil/>Editar
-                </Link>
                 <button onClick={remove}>
                     <BsFillTrashFill/>Excluir
                 </button>
