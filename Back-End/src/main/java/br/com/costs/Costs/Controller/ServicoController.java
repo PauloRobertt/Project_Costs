@@ -30,7 +30,7 @@ public class ServicoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<String> CriarServico(@RequestBody @Valid ServicoDTO data){
+	public ResponseEntity<Object> CriarServico(@RequestBody @Valid ServicoDTO data){
 		return service.CriarServico(data);
 	}
 	

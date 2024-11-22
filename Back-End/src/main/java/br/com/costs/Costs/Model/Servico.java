@@ -1,5 +1,7 @@
 package br.com.costs.Costs.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +33,7 @@ public class Servico {
 	private String descricao;
 	
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name = "projeto_id", nullable = false)
 	private Projeto projeto;
 	

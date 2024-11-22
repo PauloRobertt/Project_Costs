@@ -2,6 +2,8 @@ package br.com.costs.Costs.Model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,6 +38,7 @@ public class Projeto {
 	private float TotalUtilizado;
 	
 	@OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
+	@JsonManagedReference
 	@Column(name = "servicos")
 	private List<Servico> servicos;
 
