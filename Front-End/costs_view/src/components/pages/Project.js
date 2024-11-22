@@ -56,7 +56,7 @@ export default function Project() {
 
     if (project.orcamento < project.totalUtilizado) {
       setTypeMessage('error');
-      setTxtMessage('Custo muito elevado!');
+      setTxtMessage('Custo abaixo do total utilizado');
       return false;
     }
 
@@ -84,7 +84,7 @@ export default function Project() {
   function createService(service) {
     setTxtMessage('');
 
-    if (project.orcamento < project.totalUtilizado) {
+    if (project.totalUtilizado + service.custo > project.orcamento) {
       setTypeMessage('error');
       setTxtMessage('Custo muito elevado!');
       return false;
@@ -98,10 +98,10 @@ export default function Project() {
       body: JSON.stringify(service)
     })
       .then((resp) => resp.json())
-      .then((data) => {
+      .then(() => {
+        setShowServico(!showServico);
         setTypeMessage("sucess");
-        setTxtMessage("Projeto Editado com Sucesso!");
-        console.log(data);
+        setTxtMessage("Serviço criado com Sucesso!");
       })
       .catch((error) => {
         console.log(error);
@@ -167,7 +167,8 @@ export default function Project() {
                     handleSubmit={createService}
                     projectData={project}
                   />
-                </div>}
+                </div>
+              }
             </div>
             <h2>Serviços:</h2>
             <Container customClass='start'>

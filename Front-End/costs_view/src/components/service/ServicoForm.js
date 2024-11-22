@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Input from '../form/Input.js';
 import SubmitButton from '../form/SubmitButton.js';
-import styles from './ServicoForm.module.css';
+import styles from '../project/ProjectForm.module.css';
 
 export default function ServiceForm({ btnText, handleSubmit, projectData }) {
     const [project, setProject] = useState(projectData);
@@ -12,7 +12,6 @@ export default function ServiceForm({ btnText, handleSubmit, projectData }) {
         custo: '',
         projetoID: project.id || ''
     });
-
 
     const submit = (e) => {
         e.preventDefault();
