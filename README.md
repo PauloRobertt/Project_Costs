@@ -6,6 +6,27 @@ Este projeto é uma aplicação **full stack** desenvolvida com **React.js** no 
 
 A aplicação foi projetada para atender à necessidade de gestão de projetos e serviços de maneira eficiente, oferecendo recursos de CRUD para projetos e serviços, além de validações para evitar ultrapassagens de orçamento. O front-end é responsivo, garantindo uma boa experiência para os usuários, enquanto o back-end é robusto e escalável.
 
+## **Imagens do Projeto Costs** 
+
+**Tela Inicial**
+
+![Tela inicial](./Front-End/costs_view/src/img/Readme/Home.jpeg)
+
+**Tela de Projetos**
+
+![Tela de Projetos](./Front-End/costs_view/src/img/Readme/Projetos.jpeg)
+
+**Tela de Criação de Projetos**
+
+![Tela de Criação de Projetos](./Front-End/costs_view/src/img/Readme/Criar%20projetos.jpeg)
+
+**Tela de Edição de Projeto**
+
+![Tela de Edição de Projeto](./Front-End/costs_view/src/img/Readme/Editar%20Projeto.jpeg)
+
+**Tela de Adição de Serviço**
+![Tela de Adição de Serviço](./Front-End/costs_view/src/img/Readme/Editar%20Projetos.jpeg)
+
 ## **Tecnologias Utilizadas**
 
 ### **Front-End**
