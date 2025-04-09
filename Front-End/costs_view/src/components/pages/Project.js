@@ -42,7 +42,7 @@ export default function Project() {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        const servicoFiltrado = data.filter((Servicos) => Servicos.projetoID == id)
+        const servicoFiltrado = data.filter((Servicos) => Servicos.projetoID === Number(id))
         setService(servicoFiltrado);
       })
       .catch((error) => {
@@ -77,7 +77,7 @@ export default function Project() {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        const servicoFiltrado = data.filter((Servicos) => Servicos.projetoID == id)
+        const servicoFiltrado = data.filter((Servicos) => Servicos.projetoID === Number(id));
         setService(servicoFiltrado);
       })
       .catch((error) => {
@@ -118,7 +118,7 @@ export default function Project() {
   function createService(service) {
     setTxtMessage('');
 
-    if (project.totalUtilizado + service.custo > project.orcamento) {
+    if ((project.totalUtilizado + Number(service.custo)) > project.orcamento) {
       setTypeMessage('error');
       setTxtMessage('Custo muito elevado!');
       return false;
