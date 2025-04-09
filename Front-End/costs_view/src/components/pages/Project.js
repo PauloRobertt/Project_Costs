@@ -42,13 +42,15 @@ export default function Project() {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        setService(data);
+        const servicoFiltrado = data.filter((Servicos) => Servicos.projetoID == id)
+        setService(servicoFiltrado);
       })
       .catch((error) => {
         console.log(error);
       })
   }
 
+  // Retorna o project por ID
   useEffect(() => {
     fetch(`http://localhost:8080/projeto/${id}`, {
       method: "GET",
@@ -65,6 +67,7 @@ export default function Project() {
       });
   }, [id]);
 
+  // Retorna todos os serviços
   useEffect(() => {
     fetch("http://localhost:8080/servico", {
       method: 'GET',
@@ -74,7 +77,8 @@ export default function Project() {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        setService(data);
+        const servicoFiltrado = data.filter((Servicos) => Servicos.projetoID == id)
+        setService(servicoFiltrado);
       })
       .catch((error) => {
         console.log(error);

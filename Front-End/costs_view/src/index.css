@@ -1,11 +1,20 @@
-*{
+/* Cores do Site */
+:root {
+  --backgroundColor: #222;
+  --titleColor: #ffbb33;
+  --secondColor: #7a7a7a;
+}
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
 
-html, body, #root{
+html,
+body,
+#root {
   background-color: #EFEFEF;
   height: 100%;
 }

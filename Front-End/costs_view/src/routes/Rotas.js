@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from './components/pages/Home.js';
-import Contact from './components/pages/Contact.js';
-import Company from './components/pages/Company.js';
-import NewProject from './components/pages/NewProject.js';
-import Projects from "./components/pages/Projects.js";
-import Project from "./components/pages/Project.js";
+import Home from '../components/pages/Home.js';
+import Contact from '../components/pages/Contact.js';
+import Company from '../components/pages/Company.js';
+import NewProject from '../components/pages/NewProject.js';
+import Projects from "../components/pages/Projects.js";
+import Project from "../components/pages/Project.js";
 
-import Container from "./components/layout/Container.js";
-import NavBar from "./components/layout/NavBar.js";
-import Footer from "./components/layout/Footer.js";
+import Container from "../components/layout/Container.js";
+import NavBar from "../components/layout/NavBar.js";
+import Footer from "../components/layout/Footer.js";
 
 export default function Rotas(){
     return(

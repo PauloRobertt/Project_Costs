@@ -1,5 +1,5 @@
 .footer{
-    background-color: #222;
+    background-color: var(--backgroundColor);
     color: #fff;
     padding: 3em;
     text-align: center;
@@ -40,5 +40,5 @@
 
 .copy_right span{
     font-weight: bold;
-    color: #ffbb33;
+    color: var(--titleColor);
 }
