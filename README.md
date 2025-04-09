@@ -10,22 +10,26 @@ A aplicação foi projetada para atender à necessidade de gestão de projetos e
 
 **Tela Inicial**
 
-![Tela inicial](./Front-End/costs_view/src/img/Readme/Home.jpeg)
+![Tela inicial](./Readme/Home.jpeg)
 
 **Tela de Projetos**
 
-![Tela de Projetos](./Front-End/costs_view/src/img/Readme/Projetos.jpeg)
+![Tela de Projetos](./Readme/Projetos.jpeg)
 
 **Tela de Criação de Projetos**
 
-![Tela de Criação de Projetos](./Front-End/costs_view/src/img/Readme/Criar%20projetos.jpeg)
+![Tela de Criação de Projetos](./Readme/Criar%20Projetos.jpeg)
+
+**Tela de Projeto**
+
+![Tela de Projeto](./Readme/Tela%20do%20Projeto.jpeg)
 
 **Tela de Edição de Projeto**
 
-![Tela de Edição de Projeto](./Front-End/costs_view/src/img/Readme/Editar%20Projeto.jpeg)
+![Tela de Edição de Projeto](./Readme/Editar%20Projeto.jpeg)
 
-**Tela de Adição de Serviço**
-![Tela de Adição de Serviço](./Front-End/costs_view/src/img/Readme/Editar%20Projetos.jpeg)
+**Tela de Criação de Serviço**
+![Tela de Criação de Serviço](./Readme/Criar%20Servico.jpeg)
 
 ## **Tecnologias Utilizadas**
 
